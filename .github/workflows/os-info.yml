@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Display OS name
-        run: echo "OS name & details are below" $(lsb_release -a)
+        run: echo "OS name & details is " $(lsb_release -a 2>/dev/null | cut  -f 2 | sed -n '2p')
         
       - name: List the files in the repository
         run: |
